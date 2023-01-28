@@ -30,7 +30,7 @@ public class MovieController {
         return new ResponseEntity<>("New Movie Dirrector PairAdded Successsfully",HttpStatus.CREATED);
      }
      @GetMapping("/get_Movie_By_name/{name}")
-    public ResponseEntity<Movie>getMovieByName(@PathVariable String name){
+    public ResponseEntity<Movie>getMoviesByName(@PathVariable String name){
         Movie movie=movieService.findMovie(name);
         return new ResponseEntity<>(movie,HttpStatus.CREATED);
      }
@@ -50,12 +50,12 @@ public class MovieController {
         return new ResponseEntity<>(movies,HttpStatus.CREATED);
     }
 @DeleteMapping("/delete_Director_By_name")
-    public ResponseEntity<String> DeleteDirectorByName(@RequestParam String dirctor){
+    public ResponseEntity<String> deleteDirectorByName(@RequestParam String dirctor){
  movieService.deleteDirector(dirctor);
  return new ResponseEntity<>(dirctor +"Remove Sucessfully",HttpStatus.CREATED);
 }
     @DeleteMapping("/delete_All_Directors")
-    public ResponseEntity<String> DeleteAllDirector(){
+    public ResponseEntity<String> deleteAllDirectors(){
         movieService.deleteAllDirector();
         return new ResponseEntity<>("Removed All Sucessfully",HttpStatus.CREATED);
     }
